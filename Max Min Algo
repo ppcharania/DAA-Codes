@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+void DAC_MAXMIN(int arr[], int l, int r,int *min,int *max)
+{
+    int mid,LMIN,LMAX,RMIN,RMAX;
+    if(l==r)
+    {
+        *min=arr[l];
+        *max=arr[l];
+    }
+    else if(l==r-1)
+    {
+        if(arr[l]<arr[r])
+        {
+            *max=arr[r];
+            *min=arr[l];
+        }
+        else
+        {
+            *max=arr[l];
+            *min=arr[r];
+        }
+    }
+    else
+    {
+        mid=(l+r)/2;
+        DAC_MAXMIN(arr,l,mid,&LMIN,&LMAX);
+        DAC_MAXMIN(arr,mid+1,r,&RMIN,&RMAX);
+        
+        if(LMIN < RMIN)
+        {
+            *min=LMIN;
+        }
+        else
+        {
+            *min=RMIN;
+        }
+        if(LMAX > RMAX)
+        {
+            *max=LMAX;
+        }
+        else
+        {
+            *max=RMAX;
+        }
+    }
+}
+int main() {
+    int arr[]={45,3,467,67,38,945,90,56,67,78};
+    int n=10;
+    int min, max;
+    DAC_MAXMIN(arr, 0, n - 1, &min, &max);
+
+    printf("Minimum number: %d\n", min);
+    printf("Maximum number: %d\n", max);
+
+    return 0;
+}
