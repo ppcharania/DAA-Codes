@@ -1,0 +1,38 @@
+#include <stdio.h>
+void SelectionSort(int arr[],int n)
+{
+    int i,j,imin;
+    for(i=0;i<n-1;i++)
+    {
+        imin=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[j]<arr[imin])
+            {
+                imin=j;
+            }
+        }
+        if(imin!=i)
+        {
+            int temp=arr[imin];
+            arr[imin]=arr[i];
+            arr[i]=temp;
+        }
+    }
+}
+printArray(int arr[],int n)
+{
+    printf("Array is: ");
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+}
+int main()
+{
+    int arr[]={45,3,467,67,38,945,90,56,67,78};
+    int n=10;
+    SelectionSort(arr,n);
+    printArray(arr,n);
+    return 0;
+}
