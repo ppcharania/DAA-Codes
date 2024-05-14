@@ -1,0 +1,21 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int a[]={1,2,3,4,5,6};
+    int start[]={0,3,0,1,4,6};
+    int finish[]={2,4,8,9,6,9};
+    int prev_fin=finish[0];
+    printf("Activities Selected: \nActivity\tStart\tFinish\n");
+    printf("%d\t\t\t%d\t\t%d\n",a[0],start[0],finish[0]);
+    int prev=0;
+    for(int i=1;i<6;i++)
+    {
+        if(finish[prev]<=start[i])
+        {
+            printf("%d\t\t\t%d\t\t%d\n",a[i],start[i],finish[i]);
+            prev=i;
+        }
+    }
+    return 0;
+}
