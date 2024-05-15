@@ -1,0 +1,21 @@
+c=[][];
+cost[n]=0;
+for(int i=n-1;i>=1;i--)
+{
+min =INT_MAX;
+for(int k=i+1,k<=n;k++)
+{
+  if(c[i][k]!=0 && c[i][k]+cost[k]<min)
+  {
+    min= c[i][k]+cost[k];
+    d[i]=k;
+  }  
+}
+cost[i]=min;
+}
+P[1]=1;
+P[n]=n;
+for(i=2;i<n;i++)
+{
+  P[i]d[P[i-1]];
+}
