@@ -1,0 +1,28 @@
+// Rabin-Karp algorithm in C
+
+#include <stdio.h>
+#include <string.h>
+
+void Naive(char pattern[], char text[], int q) {
+  int m = strlen(pattern);
+  int n = strlen(text);
+  int i,j;
+
+  for (i = 0; i <= n - m; i++) {
+      for (j = 0; j < m; j++) {
+        if (text[i + j] != pattern[j])
+          break;
+      }
+      if (j == m)
+        printf("Pattern is found at position:  %d \n", i + 1);
+    
+
+  }
+}
+
+int main() {
+  char text[] = "ABCCDDAEFG";
+  char pattern[] = "DDA";
+  int q = 13;
+  Naive(pattern, text, q);
+}
